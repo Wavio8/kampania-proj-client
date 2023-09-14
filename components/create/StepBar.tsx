@@ -64,8 +64,8 @@ const StepBar: React.FC = () => {
             message.success('Processing complete!')
             console.log(currentId);
             // console.log('http://localhost:3001/kampania/findAll/`${currentId}`');
-            const response = await axios.get(`http://localhost:3001/kampania/findAll/${currentId}`);
-           console.log(response);
+            // const response = await axios.get(`http://localhost:3001/kampania/findAll/${currentId}`);
+           // console.log(response);
             await router.push('/allKampania');
 
         } catch (error) {

@@ -14,7 +14,7 @@ export default function Home() {
                 {/*<meta name="viewport" content="width=device-width, initial-scale=1" />*/}
 
             </Head>
-            {console.log(process.env.ORIGIN)}
+
 
 
             <section className="welcomeKampania" style={{
