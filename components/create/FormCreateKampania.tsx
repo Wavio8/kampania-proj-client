@@ -11,7 +11,6 @@ import {
 import {v4 as uuidv4} from 'uuid';
 import TagsForm from "@/components/create/TagsForm";
 import {KampaniaDto} from "@/api/dto/kampania.dto";
-import {beckendCreate} from "@/api/kampania";
 import axios from "axios";
 
 
@@ -60,8 +59,6 @@ const FormCreateKampania: React.FC<{ socialMedia: string ,coreId:number}> = ({so
     const [fieldsCount, setFieldsCount] = useState(0);
     const [showLimitExceededModal, setShowLimitExceededModal] = useState(false);
     const [fieldValues, setFieldValues] = useState<{ [key: string]: string }>({});
-    const [inputWidths, setInputWidths] = useState<{ [key: string]: string }>({});
-    const [inputData, setInputData] = useState<{ [key: string]: { value: string; width: string } }>({});
     const [tags, setTags] = useState(['Кнопка 1', 'Кнопка 2', 'Кнопка 3']);
     const [showImage, setShowImage] = useState(false);
 
@@ -97,10 +94,7 @@ const FormCreateKampania: React.FC<{ socialMedia: string ,coreId:number}> = ({so
     };
 
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>, name: string) => {
-        const {value} = e.target;
-        setFieldValues({...fieldValues, [name]: value});
-    };
+
 
     const handleInlineKeyboardChange = (checked: boolean) => {
         setInlineKeyboard(checked);

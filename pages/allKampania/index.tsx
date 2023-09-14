@@ -1,6 +1,4 @@
 import Head from 'next/head';
-import StepBar from '../../components/create/StepBar';
-import SocialMediaSelection from "@/components/create/SocialMediaSelection";
 import {useEffect, useState} from "react";
 import axios from "axios";
 import {Button, Card, ConfigProvider} from "antd";
@@ -19,7 +17,6 @@ const Home = () => {
     };
 
 
-
     useEffect(() => {
         fetchData()
             .then((responseData) => {
@@ -34,7 +31,6 @@ const Home = () => {
 
     async function fetchData() {
         try {
-
 
             const response = await axios.get(`${process.env.NEXT_PUBLIC_ORIGIN}/coreKamp/coreKamps`);
             console.log(response.data.coreKamp)

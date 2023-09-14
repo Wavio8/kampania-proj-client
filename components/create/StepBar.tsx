@@ -3,7 +3,8 @@ import {Button, message, Steps, theme, Input, ConfigProvider} from 'antd';
 import SocialMediaSelection from "@/components/create/SocialMediaSelection";
 import FormCreateKampania from "@/components/create/FormCreateKampania";
 import axios from "axios";
-import { useRouter } from 'next/router';
+import {useRouter} from 'next/router';
+import Link from "next/link";
 
 const steps = [
     {
@@ -40,13 +41,12 @@ const StepBar: React.FC = () => {
             const dataToSend = {
                 name: companyName,
             };
-            // Отправляем имя компании на бэкенд
+
             const response = await axios.post(`${process.env.NEXT_PUBLIC_ORIGIN}/coreKamp/add`, dataToSend);
-            let data=response.data.id;
+            let data = response.data.id;
             setCurrentId(data);
-            console.log('Ответ от бэкенда:',response.data.id);
+            console.log('Ответ от бэкенда:', response.data.id);
             setCurrent(current + 1);
-            // Здесь вы можете обработать ответ от бэкенда
         } catch (error) {
             console.error('Ошибка при отправке на бэкенд:', error);
         }
@@ -65,8 +65,9 @@ const StepBar: React.FC = () => {
             console.log(currentId);
             // console.log('http://localhost:3001/kampania/findAll/`${currentId}`');
             // const response = await axios.get(`http://localhost:3001/kampania/findAll/${currentId}`);
-           // console.log(response);
-            await router.push('/allKampania');
+            // console.log(response);
+
+            await router.push(`${process.env.NEXT_PUBLIC_ORIGIN}/allKampania`);
 
         } catch (error) {
             console.error('Ошибка при отправке на бэкенд:', error);
@@ -83,17 +84,8 @@ const StepBar: React.FC = () => {
 
     const items = steps.map((item) => ({key: item.title, title: item.title}));
 
-    const contentStyle: React.CSSProperties = {
-        lineHeight: '260px',
-        textAlign: 'center',
-        color: token.colorTextTertiary,
-        backgroundColor: token.colorFillAlter,
-        borderRadius: token.borderRadiusLG,
-        border: `1px dashed ${token.colorBorder}`,
-        marginTop: 16,
-    };
     const forms = selectedSocialMedia.map((socialMedia, index) => {
-        return <FormCreateKampania key={index} socialMedia={socialMedia} coreId={currentId} />;
+        return <FormCreateKampania key={index} socialMedia={socialMedia} coreId={currentId}/>;
     });
 
     return (
@@ -104,7 +96,7 @@ const StepBar: React.FC = () => {
                         // Seed Token
                         colorPrimary: '#444c65',
                         borderRadius: 2,
-                        colorText:"#444c65",
+                        colorText: "#444c65",
 
 
                         // Alias Token
@@ -112,66 +104,70 @@ const StepBar: React.FC = () => {
                     },
                 }}
             >
-            <Steps current={current} items={items} style={{
-                padding: "0 30px",
-                color: "white",
-            }}/>
+                <Steps current={current} items={items} style={{
+                    padding: "0 30px",
+                    color: "white",
+                }}/>
             </ConfigProvider>
-            <div className="content-container" style={{display:"flex", flexDirection: 'column',
+            <div className="content-container" style={{
+                display: "flex", flexDirection: 'column',
                 alignItems: 'center',
-                height: '100vh'}}>
-            {current === 0 && (
-                <SocialMediaSelection
-                    selectedSocialMedia={selectedSocialMedia}
-                    onSocialMediaChange={handleSocialMediaChange}
-                />
-
-            )}
-            {current === 1 && (
-                <>
-                    <Input
-                        placeholder="Введите имя компании"
-                        value={companyName}
-                        onChange={handleInputChange}
+                height: '100vh'
+            }}>
+                {current === 0 && (
+                    <SocialMediaSelection
+                        selectedSocialMedia={selectedSocialMedia}
+                        onSocialMediaChange={handleSocialMediaChange}
                     />
-                    {/*<Button type="primary" onClick={handleSubmit}>*/}
-                    {/*    Назвать*/}
-                    {/*</Button>*/}
-                </>
-            )}
 
-            {current === 2 && (
-
-                forms
-            )}
-
-            <div style={{marginTop: 24}}>
-                {current < steps.length - 1 && current != 0 && current != 1 &&(
-                    <Button type="primary" onClick={() => next()}>
-                        Next
-                    </Button>
                 )}
                 {current === 1 && (
-                    <Button type="primary" onClick={handleSubmit}>
-                        Next
-                    </Button>
+                    <>
+                        <Input
+                            placeholder="Введите имя компании"
+                            value={companyName}
+                            onChange={handleInputChange}
+                        />
+                        {/*<Button type="primary" onClick={handleSubmit}>*/}
+                        {/*    Назвать*/}
+                        {/*</Button>*/}
+                    </>
                 )}
-                {current === 0 && (
-                    <Button type="primary" onClick={handleNext}>
-                        Next
-                    </Button>
+
+                {current === 2 && (
+
+                    forms
                 )}
-                {current === steps.length - 1 && (
-                    <Button type="primary" onClick={handleDone}>
-                        Done
-                    </Button>
-                )}
-                {current > 0 && (
-                    <Button style={{margin: '0 8px'}} onClick={() => prev()}>
-                        Previous
-                    </Button>
-                )}
-            </div>
+
+                <div style={{marginTop: 24}}>
+                    {current < steps.length - 1 && current != 0 && current != 1 && (
+                        <Button type="primary" onClick={() => next()}>
+                            Next
+                        </Button>
+                    )}
+                    {current === 1 && (
+                        <Button type="primary" onClick={handleSubmit}>
+                            Next
+                        </Button>
+                    )}
+                    {current === 0 && (
+                        <Button type="primary" onClick={handleNext}>
+                            Next
+                        </Button>
+                    )}
+                    {current === steps.length - 1 && (
+                        <Link href="/allKampania">
+                            <Button type="primary" onClick={handleDone}>
+                                Done
+                            </Button>
+                        </Link>
+                    )}
+                    {current > 0 && (
+                        <Button style={{margin: '0 8px'}} onClick={() => prev()}>
+                            Previous
+                        </Button>
+                    )}
+                </div>
             </div>
         </>
     );

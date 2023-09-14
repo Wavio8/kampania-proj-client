@@ -4,10 +4,7 @@ import SocialMediaSelection from "@/components/create/SocialMediaSelection";
 import {useState} from "react";
 
 const Home = () => {
-    const [selectedSocialMedia, setSelectedSocialMedia] = useState<string[]>([]);
-    const handleSocialMediaChange = (selected: string[]) => {
-        setSelectedSocialMedia(selected);
-    };
+
 
     return (
         <div>
