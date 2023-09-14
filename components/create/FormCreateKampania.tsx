@@ -83,6 +83,9 @@ const FormCreateKampania: React.FC<{ socialMedia: string ,coreId:number}> = ({so
                 butInl: values.butInl,
                 coreId: coreId,
             };
+            if(dataToSend.selectNet==="SMS"){
+                dataToSend.butStand=[];
+            }
             console.log(dataToSend);
             const response = await axios.post(`${process.env.NEXT_PUBLIC_ORIGIN}/kampania/add`, dataToSend);
             // const response = await axios.post('http://localhost:3001/kampania/add', dataToSend);
