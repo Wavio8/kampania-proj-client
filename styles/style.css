@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora&family=Montserrat:wght@400;700&family=Poppins:wght@500;700&display=swap');/**,*/
+/**:before,*/
+/**:after {*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+body{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+h1,h2,h3,h4,h5{
+    margin: 0;
+}
+
+.header{
+    width: 100%;
+    margin: 0;
+
+    padding-top: 20px;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+
+    position: absolute;
+
+    /*padding-top: 30px;*/
+    /*background-color: black;*/
+}
+.header_meet{
+    width: 100%;
+    margin: 0;
+
+    padding-top: 10px;
+    padding-bottom: 10px;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+
+    background: url("/public/chat.png") center no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    font-weight: bold;
+}
+
+
+
+
+
+
+.welcome__subtitle{
+
+
+    margin: 0;
+    /*padding-top: 5px;*/
+    font-family: "poppins-bold", sans-serif;
+    text-transform: uppercase;
+    color: #ff43a4;
+    font-size: 18px;
+
+    line-height: 10px;
+    text-align: center;
+    letter-spacing: .3rem;
+}
+.welcome__title{
+    font-family: "poppins-medium", sans-serif;
+    font-size: 110px;
+    color: white;
+    margin: 0;
+    text-align: center;
+
+}
+
+.short_description{
+    font-family: 'Lora', serif;
+    font-size: 15px;
+    text-transform: uppercase;
+    color: white;
+    line-height: 2.4rem;
+    text-align: center;
+    letter-spacing: .2rem;
+
+}
+.short_description__name{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.short_description__name:after {
+    content: "|";
+    text-align: center;
+    display: inline-block;
+    padding: 0 8px 0 14px;
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.review__subtitle{
+    padding-top: 10px;
+    padding-left: 30px;
+
+    font-family: "poppins-bold", sans-serif;
+
+    color: #FF0077;
+    font-size: 17px;
+    line-height: 1.875;
+    margin-bottom: 0.3rem;
+    letter-spacing: .1rem;
+    text-transform: uppercase;
+}
+
+.review__title{
+
+    padding-left: 25px;
+
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 35px;
+    color: #313131;
+    margin-bottom: 1.2rem;
+    font-weight: bolder;
+    margin-top: 3px;
+}
+.review__text{
+    padding-left: 25px;
+    clear: left;
+    float: left;
+    font-family: 'Montserrat', sans-serif;
+    color: #7d7d7d;
+    max-width: 800px;
+}
+.review__photo{
+    position: sticky;
+
+    margin-left: 70px;
+    top: 0;
+    width: 350px;
+    z-index: 250;
+}
+.results{
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    padding: 20px 0;
+
+    background-color: #444c65;
+}
+.result__item{
+    border-left: 1px solid white;
+    max-width: 100px;
+    text-align: center;
+    color: white;
+}
+.result__count{
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0;
+    padding: 5px;
+}
+.content-container {
+    background-color: #ffffff;
+    padding: 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    height: 100%;
+    width: 70%;
+    margin: 30px;
+}
+.section-form {
+    background-color: #ffcccc;
+    display: flex;
+    /*justify-content: center;*/
+    flex-direction: column;
+    align-items: center;
+
+    height: 100vh;
+}
+.checkbox-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+.icon-container {
+
+    width: 110px; /* Размер контейнера для изображения */
+    height: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 30px;
+    border-radius: 50%; /* Превращаем контейнер в круг */
+    background-color: #ffcccc; /* Цвет фона контейнера */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Розовая тень */
+}
+
+.round-image {
+
+    width: 100%; /* Заполнение всей ширины контейнера */
+    height: 100%; /* Заполнение всей высоты контейнера */
+    border-radius: 50%; /* Превращаем изображение в круг */
+}
