@@ -2,6 +2,11 @@
   "name": "kampania-proj-client",
   "version": "0.1.0",
   "private": true,
+  "description": "",
+  "author": "Baiburtian Violetta <bayviol@yandex.ru>",
+  "engines": {
+    "node": "18.14.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
