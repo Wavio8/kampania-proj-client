@@ -59,19 +59,9 @@ const StepBar: React.FC = () => {
         }
     };
 
-    const handleDone = async () => {
-        try {
-            message.success('Processing complete!')
-            console.log(currentId);
-            // console.log('http://localhost:3001/kampania/findAll/`${currentId}`');
-            // const response = await axios.get(`http://localhost:3001/kampania/findAll/${currentId}`);
-            // console.log(response);
+    const handleDone = () => {
+        message.success('Processing complete!')
 
-            await router.push(`${process.env.NEXT_PUBLIC_ORIGIN}/allKampania`);
-
-        } catch (error) {
-            console.error('Ошибка при отправке на бэкенд:', error);
-        }
     };
 
     const next = () => {
